@@ -1,0 +1,27 @@
+server:
+  port: 8000
+  
+# Spring properties
+spring:
+  application:
+     name: api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path= /api/v1/user/**
+      - id: contact-service
+        uri: lb://contact-service
+        predicates:
+        - Path= /api/v1/contact/**
+             
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1009/eureka/
+  instance:
+    hostname: localhost    

@@ -1,0 +1,18 @@
+server:
+  port: 8063
+  
+spring:
+  application:
+     name: kafka-service 
+     
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1009/eureka/  
+  instance:
+    hostname: localhost   
+    
+kafka:
+    bootstrap-servers: http://localhost:9092
+    
